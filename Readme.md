@@ -1,4 +1,4 @@
 # The Readme file
 
 ## Contributors:
-### Alexander Leinoff
+### Alexander Leinoff, Bill Rashid

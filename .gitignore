@@ -1,4 +1,4 @@
 # the .gitignore file
 # more stuff should be added
-
+/.idea/*
 /tmp/*
