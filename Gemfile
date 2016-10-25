@@ -23,6 +23,20 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+#############################################
+# Our Gems!!
+###########################################
+
+#gems for bootstrap
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'sass-rails', '>= 3.2'
+
+#gem for youtube
+gem 'yt', '~> 0.28.0'
+
+# gem for rspotify a spoitify api
+gem 'rspotify'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
