@@ -1,13 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update]
-  
-  def spotify
-    @spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
-    render :index
-  end
 
   def show
-    # @playlist = RSpotify::Playlist.find(params[:user], params[:id])
   end
 
   def new
@@ -15,11 +9,9 @@ class UsersController < ApplicationController
   end
   
   def index
-    # TODO: call Spotify authentication
   end
 
   def create
-
   end
 
   def edit
