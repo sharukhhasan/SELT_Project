@@ -36,6 +36,8 @@ gem 'yt', '~> 0.28.0'
 # gem for rspotify a spoitify api
 gem 'rspotify'
 
+gem 'simplecov'
+
 #gem for cucumber
 group :test, :development do
   gem 'cucumber-rails', :require => false
@@ -44,7 +46,7 @@ group :test, :development do
 end
 
 #gem for capybara
-gem 'capybara-rails'
+#gem 'capybara-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
