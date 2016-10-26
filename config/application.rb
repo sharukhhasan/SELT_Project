@@ -8,7 +8,6 @@ Bundler.require(*Rails.groups)
 
 module SELTProject
   class Application < Rails::Application
-    RSpotify::authenticate(ENV['180509d7204c47ebbc519f8d8e2b5cb0'], ENV['e52ac4d2cb694b889716ecd7efa43faa'])
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
