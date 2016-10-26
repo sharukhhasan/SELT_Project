@@ -36,6 +36,8 @@ gem 'yt', '~> 0.28.0'
 # gem for rspotify a spoitify api
 gem 'rspotify'
 
+gem 'simplecov'
+
 #gem for cucumber
 group :test do
   gem 'rspec-expectations'
