@@ -37,14 +37,17 @@ gem 'yt', '~> 0.28.0'
 gem 'rspotify'
 
 #gem for cucumber
-group :test, :development do
+group :test do
+  gem 'rspec-expectations'
   gem 'cucumber-rails', :require => false
+  #gem for capybara
+  gem 'capybara-rails'
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
 end
 
 #gem for capybara
-gem 'capybara-rails'
+#gem 'capybara-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -58,6 +61,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'rspec-rails', '~> 3.5'
+  gem 'guard-rspec'
 end
 
 group :development do
