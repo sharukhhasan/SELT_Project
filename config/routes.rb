@@ -60,7 +60,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  # resources :users # creates crud routes for users
+  resources :users # creates crud routes for users
   resources :login # creates crud routes for login
   root :to => redirect('/login') # map '/' to be a redirect to '/login'
 end
