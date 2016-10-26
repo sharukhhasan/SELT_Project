@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @playlist = RSpotify::Playlist.find(params[:user], params[:id])
+    # @playlist = RSpotify::Playlist.find(params[:user], params[:id])
   end
 
   def new
@@ -15,18 +15,11 @@ class UsersController < ApplicationController
   end
   
   def index
-    # @users = User.all
+    # TODO: call Spotify authentication
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
-      log_in @user
-      flash[:success] = "Welcome to the Sample App!"
-      redirect_to @user
-    else
-      render 'new'
-    end
+
   end
 
   def edit
