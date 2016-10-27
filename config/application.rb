@@ -6,6 +6,9 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+RSpotify::authenticate('180509d7204c47ebbc519f8d8e2b5cb0', 'e52ac4d2cb694b889716ecd7efa43faa')
+
+
 module SELTProject
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
