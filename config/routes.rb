@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  get 'playlist/new'
 
-  get 'login/new'
-  
-  get '/auth/spotify/callback', to: 'users#spotify'
-  get 'users/show', to: 'users#show', as: 'playlist'
+  root 'playlists#index' # configure landing page
+  get 'playlists/index', to: 'playlists#index' # hooks up landing page to appropriate controller action
+  get '/auth/spotify/callback', to: 'sessions#create' # callback route for spotify authentication
+  get '/signout' => 'sessions#destroy', :as => :signout # route for logout
+
+end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -60,7 +61,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  resources :users # creates crud routes for users
-  resources :login # creates crud routes for login
-  root :to => redirect('/login') # map '/' to be a redirect to '/login'
-end
+
+
