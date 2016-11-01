@@ -3,8 +3,12 @@ class User < ActiveRecord::Base
 
   def self.create_with_omniauth(auth)
     create! do |user|
+      if auth.display_name == nil
+        user.name = auth.email
+      else
+        user.name = auth.display_name
+      end
       user.uid = auth.id
-      user.name = auth.display_name
     end
   end
 
