@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'spec_helper'
 
-RSpec.describe PlaylistsController, type: :controller do
+RSpec.describe SessionsController, type: :controller do
     context 'when logged in' do
         it { is_expected.to respond_with 200 }
     end
