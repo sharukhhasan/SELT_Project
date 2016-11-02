@@ -1,12 +1,8 @@
-Feature: the user attempts to login to Spotitude
+Feature: the user can login to Spotitude
   
-Given I am on the Spotitude login page
+  Given I am on the Spotitude homepage
 
 Scenario:
-  When I have a valid Spotify account
-  Then I should be able to login to Spotitude
+  When I am not logged into Spotitude
+  Then I should see the login button
   
-  
-Scenario:
-  When I do not have a valid Spotify account
-  Then I should not be able to login to Spotitude
