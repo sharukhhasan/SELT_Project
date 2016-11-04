@@ -64,6 +64,7 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.5'
   gem 'guard-rspec'
+  gem 'rack_session_access'
 end
 
 group :development do
