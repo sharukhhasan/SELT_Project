@@ -57,9 +57,13 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.5'
   gem 'guard-rspec'
+<<<<<<< HEAD
   gem 'simplecov'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+=======
+  gem 'rack_session_access'
+>>>>>>> 46e988a... worked more
 end
 
 
