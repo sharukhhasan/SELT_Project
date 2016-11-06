@@ -3,10 +3,27 @@
     <div class="col-md-12">
       <% if @current_user %>
         <h1>Here are your playlists: </h1>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <% @user_playlists.each do |playlist| %>
+
+                          <h3><%= playlist.name %></h3>
+
+                                <% playlist.tracks.each do |track| %>
+                                <h5><%= track.name %></h5>
+
+                              <% end %>
+                          <hr>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
       <% else %>
         <h1>Login to view your playlists</h1>
       <% end %>
     </div>
   </div>
 </div>
+
 
