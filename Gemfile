@@ -63,7 +63,11 @@ group :development, :test do
   gem 'sqlite3'
 =======
   gem 'rack_session_access'
+<<<<<<< HEAD
 >>>>>>> 46e988a... worked more
+=======
+  # gem 'fakeweb', '~> 1.3'
+>>>>>>> 3608938... added some testing stuff...nothing works yet
 end
 
 
