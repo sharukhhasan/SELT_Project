@@ -1,60 +1,60 @@
 
+# Given /^I am on the Spotitude homepage$/ do # tests if login button exists
+#   visit root_path
+#  end
+#
+#   When /^I am not logged into Spotitude$/ do
+#       visit root_path
+#   end
+#
+#   Then /^I should see the login button$/ do
+#      result = false
+#
+#      if page.has_button?('Login With Spotify!')
+#         result = true
+#      end
+#      expect(result).to be_truthy
+#   end
 
-Given /^I am on the Spotitude homepage$/ do
-  visit root_path
- end
+Given
 
-  When /^I am not logged into Spotitude$/ do
-      visit root_path
-  end
-
-  Then /^I should see the login button$/ do 
-     result = false
-     
-     if page.has_button?("Login With Spotify!")
-        result = true 
-     end
-     
-     expect(result).to be_truthy
-  end
-
-Given /^I am on the Spotitude homepage and the following user is in the database:$/ do |users_table|
-  users_table.hashes.each do |user|
-     User.create!(user)
-     #session[:session_token] = user['session_token']
-  end
-  #visit root_path
-  #click_button 'Login With Spotify!'
- end
-
-  When /^I am logged into Spotitude$/ do
-      #code
-      #visit Rails.application.routes.recognize_path('playlists/index')
-      #click_button 'Login With Spotify!'
-      byebug
-      #SessionsController.create('session1')
-      page.set_rack_session(session_token: 'session1')
-      byebug
-      
-      visit 'playlists/index'
-      
-      #click_button 'Login With Spotify!'
-      #sesh = SessionsController.create
-  end
-
-  Then /^I should see the logout button$/ do 
-     result = false
-     #byebug
-     
-     if page.has_button?("Sign out Here!")
-        result = true 
-     end
-     
-     expect(result).to be_truthy
-  end
-
-
-
+# Given /^I am on the Spotitude homepage and the following user is in the database:$/ do |users_table|
+#   users_table.hashes.each do |user|
+#      User.create!(user)
+#      #session[:session_token] = user['session_token']
+#   end
+#   #visit root_path
+#   #click_button 'Login With Spotify!'
+#  end
+#
+#   When /^I am logged into Spotitude$/ do
+#       #code
+#       #visit Rails.application.routes.recognize_path('playlists/index')
+#       #click_button 'Login With Spotify!'
+#       byebug
+#       #SessionsController.create('session1')
+#       page.set_rack_session(session_token: 'session1')
+#       byebug
+#
+#       visit 'playlists/index'
+#
+#       #click_button 'Login With Spotify!'
+#       #sesh = SessionsController.create
+#   end
+#
+#   Then /^I should see the logout button$/ do
+#      result = false
+#      #byebug
+#
+#      if page.has_button?("Sign out Here!")
+#         result = true
+#      end
+#
+#      expect(result).to be_truthy
+#   end
+#
+#
+#
 
 
 

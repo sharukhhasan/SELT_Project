@@ -61,6 +61,7 @@ group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
   gem 'rack_session_access'
+  # gem 'fakeweb', '~> 1.3'
 end
 
 
