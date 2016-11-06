@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by_uid(auth.id)|| # lookup by id
               User.create_with_omniauth(auth) # if no user is found create one
     session[:session_token] = user.session_token
-    redirect_to playlists_index_url
+    redirect_to playlists_index_url # todo: pass user object here
   end
 
   def destroy # for logout

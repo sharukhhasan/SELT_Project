@@ -4,5 +4,6 @@ class PlaylistsController < ApplicationController
   end
 
   def index # renders playlists/index view
+    byebug
   end
 end
