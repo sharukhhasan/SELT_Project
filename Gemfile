@@ -1,10 +1,7 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -36,8 +33,6 @@ gem 'yt', '~> 0.28.0'
 # gem for rspotify a spoitify api
 gem 'rspotify'
 
-gem 'simplecov'
-
 #gem for cucumber
 group :test do
   gem 'rspec-expectations'
@@ -48,33 +43,29 @@ group :test do
   gem 'database_cleaner'
 end
 
-#gem for capybara
-#gem 'capybara-rails'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+group :development do
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 2.0'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+  # For debugging HTTP requests
+  gem 'meta_request'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'rspec-rails', '~> 3.5'
   gem 'guard-rspec'
+  gem 'simplecov'
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
 end
 
-group :development do
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
 
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-
-  # For debugging HTTP requests
-  gem 'meta_request'
+group :production do
+  gem 'pg' # for Heroku deployment
+  gem 'rails_12factor'
 end
 
 
