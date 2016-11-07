@@ -8,6 +8,10 @@ class SessionsController < ApplicationController
     session[:session_token] = user.session_token
     user_id = spotify_user.id
     redirect_to controller: 'playlists', action: 'index',  user_id: user_id # pass user id to playlists controller
+    
+    byebug
+    
+    redirect_to playlists_index_url
   end
 
   def destroy # for logout
