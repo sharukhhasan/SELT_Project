@@ -2,12 +2,12 @@ require 'rails_helper'
 require 'spec_helper'
 
 RSpec.describe PlaylistsController, type: :controller do
-=begin
-    context 'when logged in' do
-        it { is_expected.to respond_with 200 }
+    before :each do
+       post :index 
     end
-    context 'when logged out' do
-        it { is_expected.to respond_with 401 }
+    describe 'when logged in' do
+        it 'should render playlists/index view' do
+            expect(User).to redirect_to(playlists_index)
+        end
     end
-=end
 end
