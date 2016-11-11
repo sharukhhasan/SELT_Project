@@ -28,24 +28,10 @@ describe User do
       user = User.new(updated_at: nil)
       expect(user).to be_valid
     end
-  
-  describe 'creating with omniauth(@test)'
-    it "#create_with_omniauth(auth)" do
-      
+    it 'should set user.name to auth.display_name if auth.display_name is not == nil' do
+        user = User.new(name: "1234")
+        expect(user.name).to eq("1234")
     end
-=begin 
-  describe 'auth display name'
-    it "should make user.name = auth.email if auth.display_name == nil" do
-      expect(User.name).to eq(auth.email)
-    end
-    it "should make user.name = auth.display_name if auth.display_name != nil" do
-      expect(User.name).to eq(auth.display_name)
-    end
-    it "should validate that user.uid = auth.id" do
-      expect(User[:uid]).to eq(auth.id)
-    end
-=end
-
 =begin
 t.string   "provider"
 t.string   "uid"
