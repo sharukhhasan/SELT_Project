@@ -1,93 +1,37 @@
+# tests login
+Given /^I am on the Spotitude homepage$/ do
+  visit '/'
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:spotify] = OmniAuth::AuthHash.new({
+    :provider => 'spotify',
+    :uid => '1254639538'
+   })
+end
 
-# Given /^I am on the Spotitude homepage$/ do # tests if login button exists
-#   visit root_path
-#  end
-#
-#   When /^I am not logged into Spotitude$/ do
-#       visit root_path
-#   end
-#
-#   Then /^I should see the login button$/ do
-#      result = false
-#
-#      if page.has_button?('Login With Spotify!')
-#         result = true
-#      end
-#      expect(result).to be_truthy
-#   end
+When /^I click the login button$/ do
+  click_button 'Login With Spotify!'
+end
 
-Given
-
-# Given /^I am on the Spotitude homepage and the following user is in the database:$/ do |users_table|
-#   users_table.hashes.each do |user|
-#      User.create!(user)
-#      #session[:session_token] = user['session_token']
-#   end
-#   #visit root_path
-#   #click_button 'Login With Spotify!'
-#  end
-#
-#   When /^I am logged into Spotitude$/ do
-#       #code
-#       #visit Rails.application.routes.recognize_path('playlists/index')
-#       #click_button 'Login With Spotify!'
-#       byebug
-#       #SessionsController.create('session1')
-#       page.set_rack_session(session_token: 'session1')
-#       byebug
-#
-#       visit 'playlists/index'
-#
-#       #click_button 'Login With Spotify!'
-#       #sesh = SessionsController.create
-#   end
-#
-#   Then /^I should see the logout button$/ do
-#      result = false
-#      #byebug
-#
-#      if page.has_button?("Sign out Here!")
-#         result = true
-#      end
-#
-#      expect(result).to be_truthy
-#   end
-#
-#
-#
+Then /^I should be logged in$/ do
+  page.has_content?('Sign out Here!')
+end
 
 
+# tests logout
+Given /^I am logged into Spotitude already$/ do
+  visit '/'
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:spotify] = OmniAuth::AuthHash.new({
+     :provider => 'spotify',
+     :uid => '1254639538'
+   })
+  click_button 'Login With Spotify!'
+end
 
-=begin
-Given /^I am on the Spotitude login page$/ do
-  #visit movies_path
-  visit login_path
- end
- 
- Given /^I click to login$/ do
-  #visit movies_path
-  #visit login_path
-  click_button ''
- end
+When /^I click the logout button$/ do
+  click_button 'Sign out Here!'
+end
 
-
- When /^I have a valid Spotify account$/ do
-  #visit new_movie_path
-  #fill_in 'Title', :with => title
-  #select rating, :from => 'Rating'
-  #click_button 'Save Changes'
- end
-
- Then /^I should be able to login to Spotitude$/ do
-   
- end
-
- When /^I do not have a valid Spotify account$/ do
-   #visit movies_path
-   #click_on "More about #{title}"
- end
-
- Then /^I should not be able to login to Spotitude$/ do
-    #expect(page).to have_content(text)
- end
-=end
+Then /^I should be logged out of Spotitude$/ do
+  page.has_content?('Login With Spotify!')
+end

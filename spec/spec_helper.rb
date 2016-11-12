@@ -18,7 +18,6 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 require 'simplecov'
-require 'rack_session_access/capybara'
 SimpleCov.start 'rails'
 
 RSpec.configure do |config|
