@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
 
   def set_current_user
     @current_user ||= User.find_by_session_token(session[:session_token])
-#    byebug
   end
 
   # def current_user?(id) # this function may come in handy later...
