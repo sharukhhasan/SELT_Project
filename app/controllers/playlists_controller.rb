@@ -1,5 +1,5 @@
 class PlaylistsController < ApplicationController
-  before_filter :set_current_user
+  before_filter :set_current_user # executes set_current_user before any action in controller
 
   def new
   end
@@ -11,16 +11,17 @@ class PlaylistsController < ApplicationController
         user_id = nil
       else
         user_id = signed_in_user.uid # fetch users unique spotify id from db
-        redirect_to controller: 'playlists', action: 'index',  user_id: user_id # pass user id to playlists controller
+        redirect_to controller: 'playlists', action: 'index',  user_id: user_id # pass user id to playlist controller
       end
     else
       user_id = params[:user_id] # fetch users unique spotify id from parameter (session_controller)
     end
-
-    if !user_id.nil?
+    
+    if user_id.nil?
+      # todo: handle error (send to error page)-0
+    else
       spotify_user = RSpotify::User.find(user_id) # use wrapper to fetch user
       @user_playlists = spotify_user.playlists # fetch playlists from wrapper object
-      # byebug
     end
   end
 end
