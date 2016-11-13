@@ -33,6 +33,7 @@ gem 'yt', '~> 0.28.0'
 # gem for rspotify a spoitify api
 gem 'rspotify'
 
+<<<<<<< HEAD
 #gem for cucumber
 group :test do
   gem 'rspec-expectations'
@@ -57,15 +58,42 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.5'
   gem 'guard-rspec'
+<<<<<<< HEAD
   gem 'simplecov'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+=======
+  gem 'rack_session_access'
+<<<<<<< HEAD
+>>>>>>> 46e988a... worked more
+=======
+  # gem 'fakeweb', '~> 1.3'
+>>>>>>> 3608938... added some testing stuff...nothing works yet
 end
 
 
 group :production do
   gem 'pg' # for Heroku deployment
   gem 'rails_12factor'
+=======
+group :test do
+  gem 'rspec-expectations'
+  gem 'cucumber-rails', :require => false
+  gem 'capybara-rails' # gem for capybara
+  gem 'database_cleaner' # database_cleaner is not required, but highly recommended
+  gem 'simplecov'
+  gem 'meta_request' # For debugging HTTP requests
+  gem 'byebug'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'guard-rspec'
+end
+
+group :development do
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 2.0'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+>>>>>>> 8283039... integration tests for login/logout feature
 end
 
 

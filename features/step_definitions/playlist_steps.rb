@@ -1,25 +1,37 @@
-Given /^I am on the Spotitude login page$/ do
-  #visit movies_path
-  visit login_path
- end
+# tests login
+Given /^I am on the Spotitude homepage$/ do
+  visit '/'
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:spotify] = OmniAuth::AuthHash.new({
+    :provider => 'spotify',
+    :uid => '1254639538'
+   })
+end
+
+When /^I click the login button$/ do
+  click_button 'Login With Spotify!'
+end
+
+Then /^I should be logged in$/ do
+  page.has_content?('Sign out Here!')
+end
 
 
- When /^I have a valid Spotify account$/ do
-  #visit new_movie_path
-  #fill_in 'Title', :with => title
-  #select rating, :from => 'Rating'
-  #click_button 'Save Changes'
- end
+# tests logout
+Given /^I am logged into Spotitude already$/ do
+  visit '/'
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:spotify] = OmniAuth::AuthHash.new({
+     :provider => 'spotify',
+     :uid => '1254639538'
+   })
+  click_button 'Login With Spotify!'
+end
 
- Then /^I should be able to login to Spotitude$/ do
-   
- end
+When /^I click the logout button$/ do
+  click_button 'Sign out Here!'
+end
 
- When /^I do not have a valid Spotify account$/ do
-   #visit movies_path
-   #click_on "More about #{title}"
- end
-
- Then /^I should not be able to login to Spotitude$/ do
-    #expect(page).to have_content(text)
- end
+Then /^I should be logged out of Spotitude$/ do
+  page.has_content?('Login With Spotify!')
+end
