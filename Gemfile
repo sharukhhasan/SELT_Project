@@ -56,6 +56,7 @@ group :development do
   gem 'spring'
   # For debugging HTTP requests
   gem 'meta_request'
+  gem 'awesome_print' # gem for printing hashes nicely in console
 end
 
 group :development, :test do
@@ -66,9 +67,6 @@ group :development, :test do
   gem 'simplecov'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
-  gem 'rack_session_access'
-  gem 'spring'
-  # gem 'fakeweb', '~> 1.3'
 end
 
 
