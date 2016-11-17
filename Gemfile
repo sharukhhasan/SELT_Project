@@ -41,6 +41,12 @@ group :test do
   gem 'capybara-rails'
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
+  gem 'simplecov'
+  gem 'meta_request' # For debugging HTTP requests
+  gem 'byebug'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'guard-rspec'
+
 end
 
 group :development do
@@ -50,6 +56,7 @@ group :development do
   gem 'spring'
   # For debugging HTTP requests
   gem 'meta_request'
+  gem 'awesome_print'
 end
 
 group :development, :test do
@@ -60,6 +67,9 @@ group :development, :test do
   gem 'simplecov'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  gem 'rack_session_access'
+  gem 'spring'
+  # gem 'fakeweb', '~> 1.3'
 end
 
 
