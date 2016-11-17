@@ -41,6 +41,12 @@ group :test do
   gem 'capybara-rails'
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
+  gem 'simplecov'
+  gem 'meta_request' # For debugging HTTP requests
+  gem 'byebug'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'guard-rspec'
+
 end
 
 group :development do
@@ -50,6 +56,7 @@ group :development do
   gem 'spring'
   # For debugging HTTP requests
   gem 'meta_request'
+  gem 'awesome_print' # gem for printing hashes nicely in console
 end
 
 group :development, :test do
