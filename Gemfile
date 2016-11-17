@@ -56,6 +56,7 @@ group :development do
   gem 'spring'
   # For debugging HTTP requests
   gem 'meta_request'
+  gem 'awesome_print'
 end
 
 group :development, :test do
