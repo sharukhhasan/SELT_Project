@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
     redirect_to playlists_index_url
     # This is a different option \/ \/ \/
     # redirect_to controller: 'playlists', action: 'index',  user_id: user_id # pass user id to playlists controller
+    puts "self is #{self}"
   end
 
   def auth_hash
@@ -20,6 +21,3 @@ class SessionsController < ApplicationController
     redirect_to root_url
   end
 end
-
-
-

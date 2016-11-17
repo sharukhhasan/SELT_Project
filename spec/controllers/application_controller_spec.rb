@@ -11,10 +11,18 @@ end
 
     describe "#set_current_user" do
         before :each do
-            @user = {:session_token => "369kgallRNfV0d1S5e4aKA"}
+          @auth={ :email =>'myEmail', :display_name => 'myDisplayName', :id => "123123"}
+          @auth_user = RSpotify::User.new(@auth)
+          @user = User.create_with_omniauth(@auth_user)
+          puts "user is: #{@user}"
+          puts "user.session_token #{@user.session_token}"
+
+          @user.save
+
+            #@user = {:session_token => "369kgallRNfV0d1S5e4aKA"}
         end
         it "should set session token of user" do
-            expect(subject.set_current_user).to eq("369kgallRNfV0d1S5e4aKA")
+            expect(subject.set_current_user).to eq("123")
         end
     end
 end
