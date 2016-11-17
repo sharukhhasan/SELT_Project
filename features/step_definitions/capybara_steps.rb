@@ -27,6 +27,10 @@ Then /^I should be logged out of Spotitude$/ do
   page.has_content?('Login With Spotify!')
 end
 
+Then /^I should see all my Spotify playlists$/ do
+  page.all('.playlist-name').count.should_not === 0
+end
+
 def configure_omniauth # function that tells omniauth gem to mock authentication flow for integration testing purposes
   OmniAuth.config.test_mode = true
   OmniAuth.config.mock_auth[:spotify] = OmniAuth::AuthHash.new({
@@ -59,3 +63,4 @@ def configure_omniauth # function that tells omniauth gem to mock authentication
      :extra => {}
   })
 end
+

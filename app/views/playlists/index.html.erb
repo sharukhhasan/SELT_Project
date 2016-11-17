@@ -8,9 +8,8 @@
                     <div class="col-md-4">
                       <% @user_playlists.each do |playlist| %>
 
-                          <h3><%= playlist.name %></h3>
+                          <h3 class="playlist-name"><%= playlist.name %></h3>
                           <h8><%= playlist.description %></h8>
-
                                 <% playlist.tracks.each do |track| %>
                                 <h5><%= track.name %></h5>
                               <% end %>
