@@ -20,17 +20,10 @@
 $(function() {
    
    $(".spinner").hide();
+    var myEl = document.getElementById('loginbutton');
 
-
-  // show spinner on AJAX start
-  $(document).ajaxStart(function(){
+  myEl.addEventListener('click', function() {
     $(".spinner").show();
-  });
-
-  // hide spinner on AJAX stop
-  $(document).ajaxStop(function(){
-    $(".spinner").hide();
-  });
-        
+}, false);
 });
 
