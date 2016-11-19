@@ -18,12 +18,14 @@
 
 
 $(function() {
-   
-   $(".spinner").hide();
-    var myEl = document.getElementById('loginbutton');
-
-  myEl.addEventListener('click', function() {
-    $(".spinner").show();
-}, false);
+    
+    var spinner = $(".spinner");
+    var login_msg = $("#login-message");
+    spinner.hide();
+    var login_button= $("#loginbutton");
+    login_button.on('click', function () {
+        spinner.show();
+        login_msg.hide();
+    });
 });
 
