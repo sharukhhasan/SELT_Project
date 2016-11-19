@@ -14,3 +14,16 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+
+$(function() {
+   
+   $(".spinner").hide();
+    var myEl = document.getElementById('loginbutton');
+
+  myEl.addEventListener('click', function() {
+    $(".spinner").show();
+}, false);
+});
+
