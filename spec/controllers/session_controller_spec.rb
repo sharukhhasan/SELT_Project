@@ -49,8 +49,9 @@ RSpec.describe SessionsController, type: :controller do
             #@auth = {:birthdate => nil, :country => nil, :display_name => nil, :email => "ian-ingram@uiowa.edu", :images => [], :product => nil, :href => "https://api.spotify.com/v1/users/ian-ingram", :id => "ian-ingram", :type => "user", :uri => "spotify:user:ian-ingram"}
             post :create
         end
-        it "should redirect to root_url" do
-            expect(User).to redirect_to(root_url)
+
+        it "should redirect to playlists_index_url" do
+            expect(User).to redirect_to(playlists_index_url)
         end
         it 'should check session_token is not nil' do
             spotify_user = RSpotify::User.new(request.env['omniauth.auth']) # get a spotify user using omniauth token
@@ -65,7 +66,7 @@ RSpec.describe SessionsController, type: :controller do
             expect(session[:session_token]).to eq(user.session_token)
         end
     end
-    
+
     describe "Destroying a Session" do
         before :each do
             post :destroy
@@ -77,4 +78,5 @@ RSpec.describe SessionsController, type: :controller do
             expect(session[:session_token]).to eq nil
         end
     end
+
 end
