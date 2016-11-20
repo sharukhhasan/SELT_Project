@@ -15,6 +15,7 @@ class SessionsController < ApplicationController
     request.env['omniauth.auth']
   end
 
+
   def destroy # for logout
     session[:session_token] = nil
     redirect_to root_url
