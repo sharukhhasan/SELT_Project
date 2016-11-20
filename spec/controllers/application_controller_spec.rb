@@ -10,11 +10,9 @@ class ApplicationController
 end
 
     describe "#set_current_user" do
-        before :each do
-            @user = {:session_token => "369kgallRNfV0d1S5e4aKA"}
-        end
         it "should set session token of user" do
-            expect(subject.set_current_user).to eq("369kgallRNfV0d1S5e4aKA")
+          User.stub(:find_by_session_token).and_return("atoken")
+          expect(subject.set_current_user).to eq("atoken")
         end
     end
 end
