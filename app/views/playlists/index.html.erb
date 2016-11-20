@@ -1,34 +1,28 @@
 <div class="container">
-  <div class="row">
-  <form action= "/playlists/searchresults" method="get">
-      <input type="text" name="search" class="form-control home_search" placeholder="song, artist, album..", autocomplete="off"><br>
-      <p>
-        <input type= "submit" class= "btn btn-lg btn-success" value= "search!">
-      </p>
-  </form>
-  
   <div class="col-md-12">
     <% if @current_user.respond_to?(:uid) %>
-      <h1>Here are your playlists: </h1>
+      <h1>Here are your playlists</h1>
         <div class="container">
-        <div class="row">
-        <div class="col-md-4">
-          <% @user_playlists.each do |playlist| %>
-          <h3 class="playlist-name"><%= playlist.name %></h3>
-            <h8><%= playlist.description %></h8>
-              <% playlist.tracks.each do |track| %>
-            <h5><%= track.name %></h5>
-          <% end %>
-          <hr>
-        <% end %>
-                    </div>
+          <input id="search-field" type="text" name="search" class="form-control home_search" placeholder="narrow your playlists by playlist name or song title" autocomplete="off"><br>
+              <div class="col-lg-12">
+                <!--<input type= "submit" class= "btn btn-lg btn-success" value= "search!">-->
+                <% @user_playlists.each do |playlist| %>
+                  <div class="row playlist-div filterable">
+                      <h3 class="playlist-name"><%= playlist.name %></h3>
+                      <p><%= playlist.description %></p>
+                      <% playlist.tracks.each do |track| %>
+                            <h5 class="track-name"><%= track.name %></h5>
+
+                      <% end %>
                   </div>
-                </div>
+                  <% end %>
+                <hr>
+              </div>
+        </div>
     <% else %>
-      <h1 id="login-message">Login to view your playlists</h1>
+        <h1 id="login-message">Login to view your playlists</h1>
     <% end %>
     </div>
-  </div>
 </div>
 
 
