@@ -67,6 +67,7 @@ group :development, :test do
   gem 'simplecov'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  gem 'jasmine'
 end
 
 
