@@ -28,7 +28,7 @@ Then /^I should be logged out of Spotitude$/ do
 end
 
 Then /^I should see all my Spotify playlists$/ do
-  page.all('.playlist-name').count.should_not === 0
+  page.all('.playlist-name').count.should === 15
 end
 
 def configure_omniauth # function that tells omniauth gem to mock authentication flow for integration testing purposes
