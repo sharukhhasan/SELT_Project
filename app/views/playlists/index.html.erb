@@ -10,8 +10,10 @@
 
                           <h3 class="playlist-name"><%= playlist.name %></h3>
                           <h8><%= playlist.description %></h8>
+                                <br></br>
                                 <% playlist.tracks.each do |track| %>
-                                <h5><%= track.name %></h5>
+                                <h5 class="trackdata"style="text-align:left;display: inline;"><%= track.name%></h5> <p style="display: inline;"><%= track.popularity %></p>
+                              <br></br>
                               <% end %>
                           <hr>
                       <% end %>
