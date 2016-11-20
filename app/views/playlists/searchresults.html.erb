@@ -6,21 +6,54 @@
         <input type= "submit" class= "btn btn-lg btn-success" value= "search!">
       </p>
     </form>
-    <div class="col-md-12">
-      <% if @current_user.respond_to?(:uid) %>
-        <h1>Here are your search results from your playlists: </h1>
-                <div class="container">
-                  <div class="row">
-                    <div class="col-md-4">
-                      <% @search_results.each do |playlist| %>
-                          <h3 class="playlist-name"><%= playlist.name %></h3>
-                      <% end %>
-                    </div>
-                  </div>
-                </div>
-      <% else %>
-          <h1 id="login-message">Login to view your playlists</h1>
-      <% end %>
+
+    <div class="list-group">
+        <h1>Tracks</h1>
+        <table class="table table-striped">
+        <tbody>
+        <% @tracks.each do |track| %>
+            <tr>
+                <td>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <h5 class="list-group-item-heading"><%= track.name %></h5>
+                        <p class="list-group-item-text"><%= track.album.name %></p>
+                    </a>
+                </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <h1>Artists</h1>
+        <table class="table table-striped">
+        <tbody>
+        <% @artists.each do |artist| %>
+            <tr>
+                <td>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <h5 class="list-group-item-heading"><%= artist.name %></h5>
+                        <p class="list-group-item-text"><%= artist.popularity %></p>
+                    </a>
+                </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <h1>Albums</h1>
+        <table class="table table-striped">
+        <tbody>
+        <% @albums.each do |album| %>
+            <tr>
+                <td>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <h5 class="list-group-item-heading"><%= album.name %></h5>
+                        <p class="list-group-item-text"><%= album.release_date %></p>
+                    </a>
+                </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
     </div>
+    
   </div>
 </div>

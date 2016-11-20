@@ -17,7 +17,9 @@ class PlaylistsController < ApplicationController
   
   def searchresults
     if params[:search].present?
-      @search_results = RSpotify::Base.search(params[:search], 'album,artist,playlist')
+      @tracks = RSpotify::Track.search(params[:search])
+      @artists = RSpotify::Artist.search(params[:search])
+      @albums = RSpotify::Album.search(params[:search])
     end
   end
   
