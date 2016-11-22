@@ -1,0 +1,13 @@
+sudo: required
+language: ruby
+cache: bundler
+
+rvm:
+  - 2.3
+
+install:
+  - bundle install --path vendor/bundle
+
+script:
+  - bundle exec rspec
+  - bundle exec cucumber
