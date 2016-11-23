@@ -41,12 +41,6 @@ group :test do
   gem 'capybara-rails'
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
-  gem 'simplecov'
-  gem 'meta_request' # For debugging HTTP requests
-  gem 'byebug'
-  gem 'rspec-rails', '~> 3.5'
-  gem 'guard-rspec'
-
 end
 
 group :development do
@@ -55,7 +49,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   # For debugging HTTP requests
-  gem 'meta_request'
   gem 'awesome_print' # gem for printing hashes nicely in console
 end
 
@@ -67,6 +60,7 @@ group :development, :test do
   gem 'simplecov'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  gem 'meta_request' # For debugging HTTP requests
   gem 'jasmine'
   gem 'launchy'
 end
@@ -76,6 +70,3 @@ group :production do
   gem 'pg' # for Heroku deployment
   gem 'rails_12factor'
 end
-
-
-
