@@ -9,7 +9,7 @@ When /^I click the login button$/ do
 end
 
 Then /^I should be logged in$/ do
-  page.has_content?('Sign out Here!')
+  page.has_content?('Sign out here!')
 end
 
 # tests logout
@@ -20,7 +20,7 @@ Given /^I am logged into Spotitude already$/ do
 end
 
 When /^I click the logout button$/ do
-  click_button 'Sign out Here!'
+  click_button 'Sign out here!'
 end
 
 Then /^I should be logged out of Spotitude$/ do
