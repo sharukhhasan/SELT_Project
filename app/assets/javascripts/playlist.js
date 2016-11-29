@@ -43,7 +43,36 @@ $(function () {
         $("p").hide();
 
     };
+    var configYTPlaylistClick = function () {
 
+        var playlist_divs = $(".playlist-div");
+
+        playlist_divs.mouseover(function () {
+            $(this).css('background-color', '#616261');
+        });
+
+        playlist_divs.mouseout(function () {
+            $(this).css('background-color', '');
+        });
+
+        playlist_divs.dblclick(function () {
+
+            var data = $(this).val();
+            var url = window.location.href + 'youtube_playlist';
+            window.location.replace(url);
+            // TODO remove this
+            // debugger;
+            // $.ajax({
+            //     type: "GET",
+            //     url: url,
+            //     data: data
+            // });
+
+
+        });
+    };
+
+    configYTPlaylistClick();
     configSearch();
     configFontResize();
 });

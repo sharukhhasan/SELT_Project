@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get '/auth/spotify/callback', to: 'sessions#create' # callback route for spotify authentication
   get '/signout' => 'sessions#destroy', :as => :signout # route for logout
 
+  get 'youtube_playlist', to: 'youtube_playlist#index'
+
 end
 
   # The priority is based upon order of creation: first created -> highest priority.
