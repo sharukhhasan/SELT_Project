@@ -11,7 +11,7 @@ $(function()
     $("p").each(function( index ) 
     {
         console.log( index + ": " + $( this ).text() );
-        $(".trackdata")[index].style.fontSize= ($( this ).text())/4 + "px";
+        $(".trackdata")[index].style.fontSize= ($( this ).text())/4+6 + "px";
         /*$(".trackdata").css("font-size")[0] = parseInt($(this).text().charAt(0));
         $(".trackdata").css("font-size")[1] = parseInt($(this).text().charAt(1));
         console.log($(".trackdata").css("font-size")[0] + " to " + parseInt($(this).text().charAt(0)));
