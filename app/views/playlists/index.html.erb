@@ -3,7 +3,7 @@
     <% if @current_user.respond_to?(:uid) %>
       <h1>Here are your playlists</h1>
         <div class="container">
-          <input id="search-field" type="text" name="search" class="form-control home_search" placeholder="narrow your playlists by playlist name or song title" autocomplete="off"><br>
+          <input id="search-field" type="text" name="search" class="form-control home_search" placeholder="narrow your playlists by playlist name or song title" autocomplete="off">
               <div class="col-lg-12">
                 <!--<input type= "submit" class= "btn btn-lg btn-success" value= "search!">-->
                 <% @user_playlists.each do |playlist| %>
