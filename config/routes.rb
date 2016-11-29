@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get '/signout' => 'sessions#destroy', :as => :signout # route for logout
 
   get 'youtube_playlist', to: 'youtube_playlist#index'
+  get 'youtube_logged_in', to: 'youtube_playlist#loggedin' #
+
+  get 'auth/google_oauth2/callback', to: 'sessions#youtube_create' # callback route for spotify authentication
 
 end
 
@@ -63,5 +66,3 @@ end
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
-

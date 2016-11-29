@@ -32,6 +32,7 @@ gem 'yt', '~> 0.28.0'
 
 # gem for rspotify a spoitify api
 gem 'rspotify'
+gem 'omniauth-google-oauth2'
 
 #gem for cucumber
 group :test do

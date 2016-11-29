@@ -15,12 +15,15 @@ class SessionsController < ApplicationController
     request.env['omniauth.auth']
   end
 
+  def youtube_create
+    auth_youtube_hash = auth_hash
+    #need to get user and session token??
+    redirect_to youtube_logged_in
+
+  end
 
   def destroy # for logout
     session[:session_token] = nil
     redirect_to root_url
   end
 end
-
-
-
