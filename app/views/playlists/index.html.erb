@@ -9,7 +9,9 @@
                 <% @user_playlists.each do |playlist| %>
                   <div class="row playlist-div filterable">
                       <h3 class="playlist-name"><%= playlist.name %></h3>
-                      <q><%= playlist.description %></q>
+                    <% if playlist.description != nil %>
+                        <q><%= playlist.description %></q>
+                    <% end %>
                       <% playlist.tracks.each do |track| %>
                             <h5 class="track-name"><%= track.name %></h5><p><%= track.popularity %></p>
                       <% end %>
