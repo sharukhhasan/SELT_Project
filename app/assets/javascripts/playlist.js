@@ -14,4 +14,11 @@ $(function () {
         var divs = elements_not_containing_txt.filter("div .filterable"); // of those elements grab only the divs
         divs.hide(); // hide those divs
     };
+    
+    $("p").each(function( index ) 
+    {
+        $(".track-name")[index].style.fontSize= ($( this ).text())/4+6 + "px";
+    });
+   $("p").hide();
+   
 });
