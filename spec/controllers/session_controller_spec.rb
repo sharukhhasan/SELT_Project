@@ -50,8 +50,8 @@ RSpec.describe SessionsController, type: :controller do
             post :create
         end
 
-        it "should redirect to playlists_index_url" do
-            expect(User).to redirect_to(playlists_index_url)
+        it "should redirect to root url" do
+            expect(User).to redirect_to(root_url)
         end
         it 'should check session_token is not nil' do
             spotify_user = RSpotify::User.new(request.env['omniauth.auth']) # get a spotify user using omniauth token

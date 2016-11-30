@@ -8,10 +8,11 @@
                 <!--<input type= "submit" class= "btn btn-lg btn-success" value= "search!">-->
                 <% @user_playlists.each do |playlist| %>
                   <div class="row playlist-div filterable">
+                    <hr>
                       <h3 class="playlist-name"><%= playlist.name %></h3>
-                    <% if playlist.description != nil %>
-                        <q><%= playlist.description %></q>
-                    <% end %>
+                      <% if playlist.description != nil %>
+                          <q><%= playlist.description %></q>
+                      <% end %>
                       <% playlist.tracks.each do |track| %>
                             <h5 class="track-name"><%= track.name %></h5><p><%= track.popularity %></p>
                       <% end %>
