@@ -12,6 +12,20 @@ class PlaylistsController < ApplicationController
         spotify_user = RSpotify::User.find(@current_user.uid) # use wrapper to fetch user
         @user_playlists = spotify_user.playlists # fetch playlists from wrapper object
       end
+      @track = Hash.new
+      @playlist = Hash.new
+      @user_playlists.each do |playlist|
+        playlist.tracks.each do |track|
+          #puts track.name
+          @track[track.name] = track
+          track.artists.each do |art|
+            #puts art.name
+          end
+          #puts " "
+        end
+      end
+      puts @track.keys
+      #puts @playlist
     end
   end
 end

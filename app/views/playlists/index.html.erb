@@ -1,7 +1,9 @@
 <div class="container">
   <div class="col-md-12">
     <% if @current_user.respond_to?(:uid) %>
-      <h1>Here are your playlists</h1>
+    <%= content_tag :div, class: "temp_information", data: {temp: @track.to_json} do %>
+    <% end %>
+    <h1>Here are your playlists</h1>
         <div class="container">
           <input id="search-field" type="text" name="search" class="form-control home_search" placeholder="narrow your playlists by playlist name or song title" autocomplete="off">
               <div class="col-lg-12">
@@ -11,7 +13,15 @@
                       <h3 class="playlist-name"><%= playlist.name %></h3>
                       <q><%= playlist.description %></q>
                       <% playlist.tracks.each do |track| %>
-                            <h5 class="track-name"><%= track.name %></h5><p><%= track.popularity %></p>
+                            <h5 class="track-name"><%= track.name %></a></h5><p><%= track.popularity %></p>
+                            <div id="myModal" class="modal">
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                              <span class="close">x</span>
+                              <b id="modal-text">
+                              </b>
+                            </div>
+                          </div>
                       <% end %>
                   </div>
                   <% end %>
