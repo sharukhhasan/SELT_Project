@@ -50,8 +50,8 @@ RSpec.describe SessionsController, type: :controller do
             post :create
         end
 
-        it "should redirect to playlists_index_url" do
-            expect(User).to redirect_to(playlists_index_url)
+        it "should redirect to root_url" do
+            expect(User).to redirect_to(root_url)
         end
         it 'should check session_token is not nil' do
             spotify_user = RSpotify::User.new(request.env['omniauth.auth']) # get a spotify user using omniauth token
@@ -65,6 +65,21 @@ RSpec.describe SessionsController, type: :controller do
               User.create_with_omniauth(spotify_user) # if no user is found create one
             expect(session[:session_token]).to eq(user.session_token)
         end
+    end
+
+    describe "Authing with youtube" do
+      before :each do
+        post :youtube_create
+      end
+
+if false
+      pending it 'should expect auth_hash to not be nil' do
+        expect(auth_youtube_hash).not_to eq(nil)
+      end
+end
+      it 'should redirect to youtube loggedin url' do
+        expect(User).to redirect_to(youtube_logged_in_url)
+      end
     end
 
     describe "Destroying a Session" do
