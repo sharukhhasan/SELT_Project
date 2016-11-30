@@ -41,9 +41,29 @@ $(function () {
             $(".track-name")[index].style.fontSize= ($( this ).text())/4+6 + "px";
         });
         $("p").hide();
+    };
+    var configYTPlaylistClick = function () {
 
+        var playlist_divs = $(".playlist-div");
+
+        playlist_divs.mouseover(function () {
+            $(this).css('background-color', '#f2f2f2');
+            $(this).css('cursor', 'pointer');
+        });
+
+        playlist_divs.mouseout(function () {
+            $(this).css('background-color', '');
+        });
+
+        playlist_divs.dblclick(function () {
+            var playlist_name = $(this).find(".playlist-name").text();
+            console.log('playlist selected: ' + playlist_name);
+            var url = window.location.href + 'youtube_playlist?'+'name=' + playlist_name;
+            window.location.href = url;
+        });
     };
 
+    configYTPlaylistClick();
     configSearch();
     configFontResize();
 });
