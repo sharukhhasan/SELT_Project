@@ -67,6 +67,21 @@ RSpec.describe SessionsController, type: :controller do
         end
     end
 
+    describe "Authing with youtube" do
+      before :each do
+        post :youtube_create
+      end
+
+if false
+      pending it 'should expect auth_hash to not be nil' do
+        expect(auth_youtube_hash).not_to eq(nil)
+      end
+end
+      it 'should redirect to youtube loggedin url' do
+        expect(User).to redirect_to(youtube_logged_in_url)
+      end
+    end
+
     describe "Destroying a Session" do
         before :each do
             post :destroy
