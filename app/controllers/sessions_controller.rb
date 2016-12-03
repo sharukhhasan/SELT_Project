@@ -18,6 +18,7 @@ class SessionsController < ApplicationController
   def youtube_create
     auth_youtube_hash = auth_hash
     #need to get user and session token??
+    byebug
     redirect_to youtube_logged_in_url
 
   end
