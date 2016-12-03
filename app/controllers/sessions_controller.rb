@@ -14,10 +14,8 @@ class SessionsController < ApplicationController
   end
 
   def youtube_create
-    # token = auth_hash.credentials[:token]
-    # @yt_account = Yt::Account.new access_token: token
+
     session[:yt_token] = auth_hash.credentials[:token]
-    session[:yt_refresh_token] = auth_hash.credentials[:refresh_token]
     byebug
     redirect_to youtube_logged_in_url
   end
