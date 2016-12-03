@@ -9,6 +9,8 @@ class YoutubePlaylistController < ApplicationController
   end
 
   def loggedin
+    @yt_account = Yt::Account.new access_token: session[:yt_token]
+    # account = session[:yt_token]
     byebug
   end
 end

@@ -7,8 +7,6 @@ class SessionsController < ApplicationController
               User.create_with_omniauth(auth_spotify_user) # if no user is found create one
     session[:session_token] = user.session_token
     redirect_to root_url
-    # This is a different option \/ \/ \/
-    # redirect_to controller: 'playlists', action: 'index',  user_id: user_id # pass user id to playlists controller
   end
 
   def auth_hash
@@ -16,11 +14,11 @@ class SessionsController < ApplicationController
   end
 
   def youtube_create
-    auth_youtube_hash = auth_hash
-    #need to get user and session token??
+    # token = auth_hash.credentials[:token]
+    # @yt_account = Yt::Account.new access_token: token
+    session[:yt_token] = auth_hash.credentials[:token]
     byebug
     redirect_to youtube_logged_in_url
-
   end
 
   def destroy # for logout
