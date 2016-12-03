@@ -7,4 +7,8 @@ class YoutubePlaylistController < ApplicationController
     user_playlists = spotify_user.playlists # fetch playlists from wrapper object
     @selected_playlist = user_playlists.find {|playlist| playlist.name == @playlist_name}
   end
+
+  def loggedin
+    byebug
+  end
 end
