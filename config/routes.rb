@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'user/new'
+
   root 'playlists#index' # configure landing page
   get 'playlists/index', to: 'playlists#index' # hooks up landing page to appropriate controller action
   get '/auth/spotify/callback', to: 'sessions#create' # callback route for spotify authentication
