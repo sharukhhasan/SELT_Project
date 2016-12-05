@@ -1,0 +1,28 @@
+<section class="column-main-wrapper">
+  <div class="column-main">
+    <h1>Users</h1>
+    <% if @users %>
+    <%= will_paginate @users %>
+      <% @users.each do |u| %>
+        <div class="user-outer">
+          <% unless current_user == u %>  
+             <%= link_to gravatar_for(u, 200), user_path(:id => u) %> 
+          <span class="span-2">
+            <% if current_user.requested_friends.include?(u) %>
+              Pending
+            <% elsif current_user.friends.include?(u) %>
+              Friend
+            <% else %>
+            <%= link_to "ADD", user_friends_path( :user_id => current_user, :friend_id => u), :action => :create, :method => :post, :class => "btn-friend" %>
+              <% end %>
+          </span>
+        <p class="span-1">
+            <%= link_to "#{u.profile.first_name} #{u.profile.last_name}", user_path(:id => u) %>
+        </p>       
+          <% end %>
+      </div>
+      <% end %>
+    <%= will_paginate @users %>
+    <% end %>
+  </div>
+</section>

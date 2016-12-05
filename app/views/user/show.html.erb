@@ -1,0 +1,34 @@
+<section class="column-main">
+  <% if current_user == @user %>
+    <%= render 'friends', friends: @friends %>
+  <% end %>
+  <div class="column-main-content">
+    <h1><%= @user.profile.first_name %>&nbsp<%= @user.profile.last_name %></h1>
+    <% unless @user.profile.photo.url == "/photos/original/missing.png" %>
+      <%= image_tag @user.profile.photo.url(:medium) %>
+    <% else %>
+      <%= gravatar_for(@user, 250) %>
+    <% end %>
+
+    <h4>"<%= @user.profile.blurb %>"</h4>
+    <% if current_user == @user%>
+      <%= link_to "edit profile", edit_user_profiles_path(current_user) %>
+    <% end %>
+  </div>
+  <% if current_user == @user%>
+     <div class="form-main-content">
+       <%= form_for(@post) do |f| %>
+         <%= render 'shared/error_messages', f: @post %>
+         <%= f.text_area :description %>
+         <%= f.submit "Post Text", :class => "btn-post" %>
+       <% end %>  
+<!--        <%= form_for(@image) do|f| %> 
+         <%= render 'shared/error_messages', f: @image %>
+         <div class="field">
+           <%= f.file_field :image %>
+         </div>
+           <%= f.submit "Post Image", :class=> "btn-post" %>
+       <% end %>-->
+    </div>
+  <% end %>
+</section>
