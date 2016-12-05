@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   skip_before_filter :set_current_user # tells rails to skip this method
 
+
   def create # for login/register
     auth_spotify_user = RSpotify::User.new(auth_hash) # get a spotify user using omniauth token
     user = User.find_by_uid(auth_spotify_user.id)|| # lookup by id
@@ -14,9 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def youtube_create
-
     session[:yt_token] = auth_hash.credentials[:token]
-    byebug
     redirect_to youtube_logged_in_url
   end
 
