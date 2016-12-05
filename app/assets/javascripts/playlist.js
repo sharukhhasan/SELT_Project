@@ -1,4 +1,25 @@
 $(function () {
+    
+    var iframe = document.createElement('iframe');
+    var picframe = document.createElement('img');
+    var album;
+    var artists;
+    var available_markets;
+    var disc_number;
+    var duration_ms;
+    var explicit;
+    var external_ids;
+    var external_urls;
+    var href;
+    var id;
+    var name;
+    var popularity;
+    var preview_url;
+    var track_number;
+    var type;
+    var uri;
+    var modal = document.getElementById('myModal');
+    var span = document.getElementsByClassName("close")[0];
 
     var configSearch = function () {
         var playlist_search = $('#search-field');
@@ -37,10 +58,12 @@ $(function () {
     };
 
     var configFontResize = function () {
-        $("p").each(function( index ) {
-            $(".track-name")[index].style.fontSize= ($( this ).text())/4+6 + "px";
-        });
         $("p").hide();
+        var trackname = $(".track-name");
+        $("p").each(function( index ) {
+            trackname[index].style.fontSize= ($( this ).text())/4+6 + "px";
+        });
+        
     };
     var configYTPlaylistClick = function () {
 
@@ -66,4 +89,97 @@ $(function () {
     configYTPlaylistClick();
     configSearch();
     configFontResize();
+    
+    $('.track-name').click(function(event)
+    {
+        var temp_info_el = $('.temp_information');
+        console.log(temp_info_el.data('temp')[$(this).get(0).innerHTML]);
+        var artists = temp_info_el.data('temp')[$(this).get(0).innerHTML].artists;
+        var album = temp_info_el.data('temp')[$(this).get(0).innerHTML].album;
+        var artists = temp_info_el.data('temp')[$(this).get(0).innerHTML].artists;
+        var available_markets = temp_info_el.data('temp')[$(this).get(0).innerHTML].available_markets;
+        var disc_number = temp_info_el.data('temp')[$(this).get(0).innerHTML].disc_number;
+        var duration_ms = temp_info_el.data('temp')[$(this).get(0).innerHTML].duration_ms;
+        var explicit = temp_info_el.data('temp')[$(this).get(0).innerHTML].explicit;
+        var external_ids = temp_info_el.data('temp')[$(this).get(0).innerHTML].external_ids;
+        var external_urls = temp_info_el.data('temp')[$(this).get(0).innerHTML].external_urls;
+        var href = temp_info_el.data('temp')[$(this).get(0).innerHTML].href;
+        var id = temp_info_el.data('temp')[$(this).get(0).innerHTML].id;
+        var name = temp_info_el.data('temp')[$(this).get(0).innerHTML].name;
+        var popularity = temp_info_el.data('temp')[$(this).get(0).innerHTML].popularity;
+        var preview_url = temp_info_el.data('temp')[$(this).get(0).innerHTML].preview_url;
+        var track_number = temp_info_el.data('temp')[$(this).get(0).innerHTML].track_number;
+        var type = temp_info_el.data('temp')[$(this).get(0).innerHTML].type;
+        var uri = temp_info_el.data('temp')[$(this).get(0).innerHTML].uri;
+        
+        console.log("preview: " + preview_url);
+
+        var artistsString = "";
+        for (i = 0; i < artists.length; i++)
+        {
+            //console.log(artists.length);
+            if(artists.length - 1 == i)
+            {
+                artistsString += artists[i].name;
+            }
+            else
+            {
+                artistsString += artists[i].name + ", ";
+            }
+        }
+        document.getElementById("modal-text").innerHTML =
+        "Song: " + name + "<br>" + 
+        "Album: " + album.name + "<br>" + 
+        "Artists: " + artistsString + "<br>" +
+        "Disc Number: " + disc_number + "<br>" +
+        "Explicit: " + explicit + "<br>";
+        if(document.getElementById("modal-text").childElementCount == 1)
+        {
+            document.getElementById("modal-text").removeChild(iframe);
+            document.getElementById("modal-text").removeChild(picframe);
+        }
+        iframe.id = 'myembed';
+        iframe.src = preview_url;
+        iframe.width = "300";
+        iframe.height = "80";
+        iframe.frameborder = "0";
+        iframe.allowtransparency = "true";
+        document.getElementById("modal-text").appendChild(picframe);
+        picframe.style = "-webkit-user-select: none";
+        picframe.src = album.images[1].url;
+        if(preview_url != null)
+        {
+            document.getElementById("modal-text").appendChild(iframe);
+        }
+        else
+        {
+            document.getElementById("modal-text").innerHTML =
+                "Song: " + name + "<br>" + 
+                "Album: " + album.name + "<br>" + 
+                "Artists: " + artistsString + "<br>" +
+                "Disc Number: " + disc_number + "<br>" +
+                "Explicit: " + explicit + "<br>" +
+                "NO Preview Available" + "<br>"; 
+        }
+        modal.style.display = "block";
+    });
+    
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() 
+    {
+        modal.style.display = "none";
+        document.getElementById("modal-text").removeChild(iframe);
+        document.getElementById("modal-text").removeChild(picframe);
+    }
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) 
+    {
+        if (event.target == modal) 
+        {
+            modal.style.display = "none";
+            document.getElementById("modal-text").removeChild(iframe);
+            document.getElementById("modal-text").removeChild(picframe);
+        }
+    }
 });
