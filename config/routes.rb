@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get '/auth/spotify/callback', to: 'sessions#create' # callback route for spotify authentication
   get '/signout' => 'sessions#destroy', :as => :signout # route for logout
 
+  get '/auth/google_oauth2', :as => :make_youtube
+
   get 'youtube_playlist', to: 'youtube_playlist#index'
   get 'youtube_logged_in', to: 'youtube_playlist#yt_logged_in' #
 
