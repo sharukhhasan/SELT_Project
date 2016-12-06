@@ -6,8 +6,10 @@ class SessionsController < ApplicationController
     auth_spotify_user = RSpotify::User.new(auth_hash) # get a spotify user using omniauth token
     user = User.find_by_uid(auth_spotify_user.id)|| # lookup by id
               User.create_with_omniauth(auth_spotify_user) # if no user is found create one
+    
     session[:session_token] = user.session_token
-
+    session[:birthdate] = auth_spotify_user.birthdate
+    session[:email] = auth_spotify_user.email
     redirect_to root_url
   end
 
