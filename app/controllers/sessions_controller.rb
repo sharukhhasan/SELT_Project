@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
 
   def youtube_create
     session[:yt_token] = auth_hash.credentials[:token]
+
     redirect_to root_url
   end
 
