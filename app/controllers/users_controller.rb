@@ -5,5 +5,6 @@ class UsersController < ApplicationController
     @user_country = session[:country]
     @user_email = session[:email]
     @user_images = session[:images]
+    @user_birthday = session[:birthdate]
   end
 end
