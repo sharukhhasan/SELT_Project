@@ -54,7 +54,7 @@ class YoutubePlaylistController < ApplicationController
 
   def search_yt_and_build_playlist (new_playlist, search_term)
     videos = Yt::Collections::Videos.new
-    video_result = videos.where(q: search_term + ' track', safe_search: 'none', order:'relevance').first
+    video_result = videos.where(q: search_term, safe_search: 'none', order: 'relevance').first
     new_playlist.add_video video_result.id
   end
 end
