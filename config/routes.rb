@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  
+
   root 'playlists#index' # configure landing page
   get 'playlists/index', to: 'playlists#index' # hooks up landing page to appropriate controller action
   get '/auth/spotify/callback', to: 'sessions#create' # callback route for spotify authentication
@@ -9,6 +11,10 @@ Rails.application.routes.draw do
   get 'youtube_logged_in', to: 'youtube_playlist#loggedin' #
 
   get 'auth/google_oauth2/callback', to: 'sessions#youtube_create' # callback route for spotify authentication
+  
+  get 'users/:session_token', to: 'users#show'
+  
+  
 
 end
 
