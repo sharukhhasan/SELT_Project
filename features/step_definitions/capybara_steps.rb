@@ -4,7 +4,7 @@ Given /^I am on the Spotitude homepage$/ do
 end
 
 When /^I click the login button$/ do
-  configure_omniauth
+  configure_spotify_omniauth
   click_button 'Login With Spotify!'
 end
 
@@ -14,7 +14,7 @@ end
 
 # tests logout
 Given /^I am logged into Spotitude already$/ do
-  configure_omniauth
+  configure_spotify_omniauth
   visit '/'
   click_button 'Login With Spotify!'
 end
@@ -31,7 +31,10 @@ Then /^I should see all my Spotify playlists$/ do
   page.all('.playlist-name').count.should === @myNumberOfPlaylists
 end
 
-def configure_omniauth # function that tells omniauth gem to mock authentication flow for integration testing purposes
+When /^I click the YouTube authorize button$/ do
+  click_button
+end
+def configure_spotify_omniauth # function that tells omniauth gem to mock authentication flow for integration testing purposes
   OmniAuth.config.test_mode = true
   #myUID = "1254639538"
   #myName = "Bill Rashid"
