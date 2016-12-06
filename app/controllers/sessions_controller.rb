@@ -7,8 +7,10 @@ class SessionsController < ApplicationController
               User.create_with_omniauth(auth_spotify_user) # if no user is found create one
     
     session[:session_token] = user.session_token
-    session[:birthdate] = auth_spotify_user.birthdate
+    session[:country] = auth_spotify_user.country
     session[:email] = auth_spotify_user.email
+    session[:display_name] = auth_spotify_user.display_name
+    session[:images] = auth_spotify_user.images
     redirect_to root_url
     # This is a different option \/ \/ \/
     # redirect_to controller: 'playlists', action: 'index',  user_id: user_id # pass user id to playlists controller
