@@ -11,21 +11,12 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
+//
 //= require turbolinks
 //= require_tree .
 
 
 
-$(function() {
-    
-    var spinner = $(".spinner");
-    var login_msg = $("#login-message");
-    spinner.hide();
-    var login_button= $("#loginbutton");
-    login_button.on('click', function () {
-        spinner.show();
-        login_msg.hide();
-    });
-});
 
