@@ -25,18 +25,18 @@
         <% if @current_user %>
             <li>
               <form class="navbar-form" action="/signout" method="GET">
-                <button class="btn btn-success" type="submit">Sign out Here!</button>
+                <button class="btn btn-default" type="submit">Sign out here!</button>
               </form>
             </li>
             <li>
               <form class="navbar-form" action="/users/settings" method="GET">
-                <button class="btn btn-success" type="submit">Settings</button>
+                <button class="btn btn-default" type="submit">Settings</button>
               </form>
             </li>
         <% else %>
             <li>
               <form class="navbar-form" action="/auth/spotify" method="GET">
-                <button class="btn btn-success" type="submit" id="loginbutton">Login With Spotify!</button>
+                <button class="btn btn-default" type="submit" id="loginbutton">Login With Spotify!</button>
               </form>
             </li>
         <% end %>
