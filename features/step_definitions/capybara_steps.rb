@@ -5,7 +5,7 @@ end
 
 When /^I click the login button$/ do
   configure_omniauth
-  click_button 'Login With Spotify!'
+  click_button 'Login With Spotify and Youtube!'
 end
 
 Then /^I should be logged in$/ do
@@ -16,7 +16,7 @@ end
 Given /^I am logged into Spotitude already$/ do
   configure_omniauth
   visit '/'
-  click_button 'Login With Spotify!'
+  click_button 'Login With Spotify and Youtube!'
 end
 
 When /^I click the logout button$/ do
@@ -24,7 +24,7 @@ When /^I click the logout button$/ do
 end
 
 Then /^I should be logged out of Spotitude$/ do
-  page.has_content?('Login With Spotify!')
+  page.has_content?('Login With Spotify and Youtube!')
 end
 
 Then /^I should see all my Spotify playlists$/ do
