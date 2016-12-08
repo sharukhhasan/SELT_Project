@@ -3,7 +3,7 @@
     <% if @current_user.respond_to?(:uid) %>
     <%= content_tag :div, class: "temp_information", data: {temp: @track.to_json} do %>
     <% end %>
-      <h1>Here are your playlists</h1>
+      <h1><small>Your Spotify Playlists are below</small></h1>
         <div class="container">
           <input id="search-field" type="text" name="search" class="form-control home_search" placeholder="narrow your playlists by playlist name or song title" autocomplete="off">
               <div class="col-lg-12">
