@@ -4,7 +4,7 @@ Given /^I am on the Spotitude homepage$/ do
 end
 
 When /^I click the login button$/ do
-  configure_spotify_omniauth
+  configure_omniauth
   click_button 'Login With Spotify!'
 end
 
@@ -14,7 +14,7 @@ end
 
 # tests logout
 Given /^I am logged into Spotitude already$/ do
-  configure_spotify_omniauth
+  configure_omniauth
   visit '/'
   click_button 'Login With Spotify!'
 end
@@ -34,7 +34,8 @@ end
 When /^I click the YouTube authorize button$/ do
   click_button
 end
-def configure_spotify_omniauth # function that tells omniauth gem to mock authentication flow for integration testing purposes
+
+def configure_omniauth # function that tells omniauth gem to mock authentication flow for integration testing purposes
   OmniAuth.config.test_mode = true
   #myUID = "1254639538"
   #myName = "Bill Rashid"
@@ -73,5 +74,27 @@ def configure_spotify_omniauth # function that tells omniauth gem to mock authen
          :expires => true
      },
      :extra => {}
+  })
+
+
+  OmniAuth.config.add_mock( :google_oauth2, {
+      "provider" => "google_oauth2",
+      "uid" => "103712197192383640557",
+      "info" => {
+          "name" => "Alex L",
+          "email" => "ajjleinoff@gmail.com",
+          "first_name" => "Alex",
+          "last_name" => "L",
+          "image" => "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg",
+          "urls" => {
+              "Google" => "https://plus.google.com/103712197192383640557"
+          }
+      },
+      "credentials" => {
+          "token" => "ya29.Ci-uA4iyGBxQk90XMOx0zhlMciZus1V4DJE4QaLPL0sLrTEAN6lzu2ocYMGfFNQe5w",
+          "refresh_token" => "1/8J4AdTOzpQSvAYByWNY0e2Kg6aEmzrgLyvKRg5bECDfIeNk2CcQMmx8ZFzxbXtLj",
+          "expires_at" => 1481191145,
+          "expires" => true
+      },
   })
 end
