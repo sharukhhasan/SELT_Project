@@ -51,7 +51,7 @@ RSpec.describe SessionsController, type: :controller do
         end
 
         it "should redirect to root url" do
-            expect(User).to redirect_to(root_url)
+            expect(User).to redirect_to(make_youtube_url)
         end
         it 'should check session_token is not nil' do
             spotify_user = RSpotify::User.new(request.env['omniauth.auth']) # get a spotify user using omniauth token
