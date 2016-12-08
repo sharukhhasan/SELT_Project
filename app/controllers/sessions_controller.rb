@@ -7,6 +7,9 @@ class SessionsController < ApplicationController
     user = User.find_by_uid(auth_spotify_user.id)|| # lookup by id
               User.create_with_omniauth(auth_spotify_user) # if no user is found create one
     session[:session_token] = user.session_token
+    session[:country] = auth_spotify_user.country
+    session[:followers] = auth_spotify_user.followers.total
+    session[:display_name] = auth_spotify_user.display_name
 
     redirect_to root_url
   end
