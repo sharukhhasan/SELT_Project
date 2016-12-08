@@ -54,6 +54,7 @@ def configure_spotify_omniauth # function that tells omniauth gem to mock authen
          :external_urls => {
              :spotify => "https://open.spotify.com/user/#{myUID}"
          },
+         :country => "USA",
          :followers => {
              :href => nil,
              :total => 20
