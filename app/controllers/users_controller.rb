@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def settings
     @user = User.find_by_session_token(session[:session_token])
+    @current_user = User.find_by_session_token(session[:session_token])
     
     @user_email = session[:email]
     @user_image = session[:image_url]
