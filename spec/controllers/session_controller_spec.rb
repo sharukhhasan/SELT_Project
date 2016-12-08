@@ -77,9 +77,9 @@ if false
         expect(auth_youtube_hash).not_to eq(nil)
       end
 end
-      it 'should redirect to youtube loggedin url' do
-        expect(User).to redirect_to(youtube_logged_in_url)
-      end
+      # it 'should redirect to youtube loggedin url' do
+      #   expect(User).to redirect_to(youtube_logged_in_url)
+      # end
     end
 
     describe "Destroying a Session" do
