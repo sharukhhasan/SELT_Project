@@ -57,19 +57,19 @@ var configFontResize = function () {
 };
 var configYTPlaylistClick = function () {
 
-    var playlist_divs = $(".playlist-div");
+    var playlist_name_divs = $(".playlist-name");
 
-    playlist_divs.mouseover(function () {
-        $(this).css('background-color', '#f2f2f2');
+    playlist_name_divs.mouseover(function () {
+        $(this).css('text-decoration', 'none');
         $(this).css('cursor', 'pointer');
     });
 
-    playlist_divs.mouseout(function () {
-        $(this).css('background-color', '');
+    playlist_name_divs.mouseout(function () {
+        $(this).css('text-decoration', 'underline');
     });
 
-    playlist_divs.dblclick(function () {
-        var playlist_name = $(this).find(".playlist-name").text();
+    playlist_name_divs.click(function () {
+        var playlist_name = $(this).text();
         console.log('playlist selected: ' + playlist_name);
         var url = window.location.href + 'youtube_playlist?'+'name=' + playlist_name;
         window.location.href = url;
