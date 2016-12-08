@@ -45,14 +45,16 @@ Then /^I should see my selected playlist$/ do
 end
 
 Given /^I have selected a playlist$/ do
-  configure_spotify_omniauth
+  configure_omniauth
   visit '/'
-  click_button 'Login With Spotify!'
+  click_button 'Login With Spotify and Youtube!'
+  byebug
   first('.playlist-name').click
 end
 
 When /^I click the youtube playlist button$/ do
-  configure_youtube_omniauth
+  configure_omniauth
+  save_and_open_page
   click_button 'Create a YouTube Playlist'
 end
 
@@ -121,42 +123,5 @@ def configure_omniauth # function that tells omniauth gem to mock authentication
   })
 end
 
-def configure_youtube_omniauth # function that tells omniauth gem to mock authentication flow for integration testing purposes
-  OmniAuth.config.test_mode = true
-  myUID = "aleinoff"
-  myName = "Alexander Leinoff"
-  myEmail = "ajjleinoff@gmail.com"
-  @myNumberOfPlaylists = 6
-
-  OmniAuth.config.mock_auth[:spotify] = OmniAuth::AuthHash.new({
-       :provider => 'google_oauth2',
-       :uid => "#{myUID}",
-       :info => {
-           :display_name =>  "#{myName}",
-           :email => "#{myEmail}",
-           # :external_urls => {
-           #     :spotify => "https://open.spotify.com/user/#{myUID}"
-           # },
-           :followers => {
-               :href => nil,
-               :total => 20
-           },
-           :href => "https://api.spotify.com/v1/users/#{myUID}",
-           :id => "#{myUID}",
-           :images => [{}],
-           :url => '',
-           :width => nil,
-       },
-       :type => 'user',
-       :uri => "spotify:user:#{myUID}",
-       :credentials => {
-           :token => 'BQDQcSp-sjJhjAYwneBh6ihKJdjl2lr0TLUdnP90g8suOMHPUKrphr8zofpF8-XM1Y8z4KXcBiWNqdvGMtX2tTJ-cgXqC8cce43b46ZX4CJVpd1TcBErtrf28RfqMcbEQuHndxnpON3tQS4HGlVt8Lz_cZQSQXy6XxzgzZFaXETPMgGIrezdkM6ayZ5Urn9HssLLRp2PATKQQ6w',
-           :refresh_token => 'AQDXykZgL9aArA9BdGlB3WTB2w0OK-J3pBJm9QXu5iliRwwcF98SVXrO4wlkGXyEX2FASrAQOTtNPgumDOzVfe8t4BM0u3Qj_EOVZ-X6nZlUzpK0EQvLOKLP0u8s1NXYNW4',
-           :expires_at => '1479364946',
-           :expires => true
-       },
-       :extra => {}
-   })
-end
 
 

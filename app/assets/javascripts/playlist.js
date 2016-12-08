@@ -4,9 +4,8 @@ var configSpinner = function () {
     var login_msg = $("#login-message");
     spinner.hide();
     var buttons= $(".btn");
-    var home_link = ("#home-link");
-    debugger;
-    buttons.add(home_link);
+    var home_link = $("#home-link");
+    buttons.push(home_link);
     buttons.on('click', function () {
         spinner.show();
         login_msg.hide();
