@@ -4,6 +4,9 @@ var configSpinner = function () {
     var login_msg = $("#login-message");
     spinner.hide();
     var buttons= $(".btn");
+    var home_link = ("#home-link");
+    debugger;
+    buttons.add(home_link);
     buttons.on('click', function () {
         spinner.show();
         login_msg.hide();
@@ -158,7 +161,8 @@ var configModal = function () {
 var configTrackHighlight = function () { // changes color of track on hover
     var track_name_els = $('.track-name');
     track_name_els.mouseover(function() {
-        $(this).css('color', '#4cae4c'); // same color as login/logout button
+        $(this).css('cursor', 'pointer');
+        $(this).css('color', '#777777'); // same color as login/logout button
     });
     track_name_els.mouseout(function () {
         $(this).css('color', '');
