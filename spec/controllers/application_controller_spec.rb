@@ -8,7 +8,6 @@ RSpec.describe ApplicationController, type: :controller do
 class ApplicationController
   public :set_current_user
 end
-
     describe "#set_current_user" do
         it "should set session token of user" do
           User.stub(:find_by_session_token).and_return("atoken")
