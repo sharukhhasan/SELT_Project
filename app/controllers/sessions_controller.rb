@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     session[:followers] = auth_spotify_user.followers.total
     session[:display_name] = auth_spotify_user.display_name
 
-    redirect_to root_url
+    redirect_to make_youtube_url
   end
 
   def auth_hash
@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
 
   def youtube_create
     session[:yt_token] = auth_hash.credentials[:token]
-    redirect_to youtube_logged_in_url
+    redirect_to root_url
   end
 
   def destroy # for logout

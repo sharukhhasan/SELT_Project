@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'auth/google_oauth2/callback', to: 'sessions#youtube_create' # callback route for spotify authentication
   
   get '/users/settings', to: 'users#settings'
+  get '/auth/google_oauth2', :as => :make_youtube
 
 end
 
