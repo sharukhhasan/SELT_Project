@@ -11,8 +11,11 @@ class SessionsController < ApplicationController
     session[:followers] = auth_spotify_user.followers.total
     session[:display_name] = auth_spotify_user.display_name
     session[:email] = auth_spotify_user.email
-    session[:image_url] = auth_spotify_user.images[0].url
 
+    if auth_spotify_user.images[0].nil?
+    else
+      session[:image_url] = auth_spotify_user.images[0].url
+    end
     redirect_to make_youtube_url
   end
 
