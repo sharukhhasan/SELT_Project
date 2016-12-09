@@ -23,9 +23,6 @@ RSpec.describe YoutubePlaylistController, type: :controller do
 
       # manual mock
       class YoutubePlaylistController
-        def is_yt_playlist_already_created(arg)
-          return false
-        end
         def create_yt_playlist(arg1, arg2)
           return false
         end
