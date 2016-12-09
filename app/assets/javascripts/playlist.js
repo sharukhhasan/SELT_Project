@@ -73,7 +73,7 @@ var configYTPlaylistClick = function () {
     playlist_name_divs.click(function () {
         var playlist_name = $(this).text();
         console.log('playlist selected: ' + playlist_name);
-        var url = window.location.href + 'youtube_playlist?'+'name=' + playlist_name;
+        var url = window.location.href.replace('#','') + 'youtube_playlist?'+'name=' + playlist_name;
         window.location.href = url;
     });
 };
