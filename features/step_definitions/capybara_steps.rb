@@ -53,8 +53,8 @@ Given /^I have selected a playlist$/ do
 end
 
 When /^I click the youtube playlist button$/ do
+
   configure_omniauth
-  save_and_open_page
   click_button 'Create a YouTube Playlist'
 end
 
@@ -62,7 +62,9 @@ Then /^I should see a youtube video$/ do
   page.has_content?('Enjoy your new YouTube playlist')
 end
 
+
 def configure_omniauth # function that tells omniauth gem to mock authentication flow for integration testing purposes
+
   OmniAuth.config.test_mode = true
   myUID = "aleinoff"
   myName = "Alexander Leinoff"
@@ -122,6 +124,8 @@ def configure_omniauth # function that tells omniauth gem to mock authentication
       },
   })
 end
+
+
 
 
 
