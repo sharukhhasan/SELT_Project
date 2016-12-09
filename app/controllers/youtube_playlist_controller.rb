@@ -33,6 +33,7 @@ class YoutubePlaylistController < ApplicationController
   def config_yt_gem
     Yt.configuration.client_id = '1095677510377-98krukjir1j472p4q3g7gb18oej274t2.apps.googleusercontent.com'
     Yt.configuration.client_secret = '4UQ2tXPd9fIaUrOLuNdS9lE'
+    #Yt.configuration.log_level = :debug
     Yt.configuration.api_key = 'AIzaSyDl03kJVnB5b62LjXXnPgWKCoG_F4c5uyU'
   end
 
