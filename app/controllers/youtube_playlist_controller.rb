@@ -12,22 +12,7 @@ class YoutubePlaylistController < ApplicationController
     config_yt_gem
     @yt_account = Yt::Account.new access_token: session[:yt_token]
     @selected_playlist_name = session[:selected_playlist_name]
-    is_created = is_yt_playlist_already_created @yt_account
-    if is_created
-      @message = 'it looks like you have already created a Spotitude playlist for your selected Spotify playlist'
-    else
-      create_yt_playlist @yt_account, @selected_playlist_name
-    end
-  end
-
-  def is_yt_playlist_already_created (yt_account)
-    is_created = false
-    yt_account.playlists.each do |playlist|
-        if @selected_playlist_name == playlist.title + ' (Created by Spotitude)'
-          is_created = true
-        end
-     end
-     is_created
+    create_yt_playlist @yt_account, @selected_playlist_name
   end
 
   def config_yt_gem
