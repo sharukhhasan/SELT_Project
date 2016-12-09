@@ -13,6 +13,11 @@ RSpec.describe YoutubePlaylistController, type: :controller do
       expect(result).to eq(true)
     end
 
+    it 'should do the index' do
+      post :index
+      expect(response).to render_template(:index)
+    end
+
     it 'should render yt_logged_in url when the user has clicked a playlist' do
       auth_hash = configure_omniauth
 
